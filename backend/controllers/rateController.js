@@ -5,7 +5,8 @@ exports.updateRates = async (req, res) => {
   try {
     const { gold24k, gold22k, gold20k, gold18k, silver, date } = req.body;
 
-    const selectedDate = date || new Date().toLocaleDateString('en-GB');
+    // Use YYYY-MM-DD format for the date (consistent format)
+    const selectedDate = date || new Date().toISOString().split('T')[0];
 
     let rate = await Rate.findOne({ date: selectedDate });
 
@@ -29,7 +30,7 @@ exports.updateRates = async (req, res) => {
 // ✅ Get today's rate (date format must match)
 exports.getRates = async (req, res) => {
   try {
-    const today = new Date().toLocaleDateString('en-GB');
+    const today = new Date().toISOString().split('T')[0]; // Ensure date is in YYYY-MM-DD format
     const rate = await Rate.findOne({ date: today });
 
     if (!rate) {
