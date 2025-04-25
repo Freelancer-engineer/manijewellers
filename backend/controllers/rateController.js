@@ -1,15 +1,11 @@
 const Rate = require('../models/Rate');
 
-// Helper to format date as yyyy-MM-dd
-const formatDate = (date = new Date()) => {
-  return date.toISOString().split('T')[0]; // "2025-04-26"
-};
-
+// ✅ Update rate with specific date (or today's if not given)
 exports.updateRates = async (req, res) => {
   try {
     const { gold24k, gold22k, gold20k, gold18k, silver, date } = req.body;
 
-    const selectedDate = date || formatDate(); // Expect frontend to also use 'yyyy-MM-dd'
+    const selectedDate = date || new Date().toLocaleDateString('en-GB');
 
     let rate = await Rate.findOne({ date: selectedDate });
 
@@ -30,9 +26,10 @@ exports.updateRates = async (req, res) => {
   }
 };
 
+// ✅ Get today's rate (date format must match)
 exports.getRates = async (req, res) => {
   try {
-    const today = formatDate();
+    const today = new Date().toLocaleDateString('en-GB');
     const rate = await Rate.findOne({ date: today });
 
     if (!rate) {
