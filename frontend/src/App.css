@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+  background-color: #f2e1c1; /* Cream white background */
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.video-container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.rates-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.rate-box {
+  background: linear-gradient(135deg, #FFD700, #FFA500); /* Gold and brown gradient */
+  padding: 20px 30px;
+  border-radius: 15px;
+  width: 180px;
+  color: #000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.rate-box:hover {
+  transform: scale(1.05);
+}
+
+.rate-box h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.rate-box p {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.date p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.tagline p {
+  font-size: 18px;
+  color: #6e4b3d; /* Brown color */
+  font-weight: 600;
+}
+.logo-container {
+  margin-top: 30px;
+}
+
+.logo-image {
+  max-width: 200px; /* Adjust as needed */
+  max-height: 100px; /* Adjust as needed */
+  margin: 0 auto;
+  display: block;
+}
